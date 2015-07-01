@@ -3,6 +3,7 @@ package br.ufg.inf.integracao.main;
 import br.ufg.inf.integracao.handler.SIADMessageReceiverHandler;
 import br.ufg.inf.integracao.handler.SIADRegisterUserHandler;
 import br.ufg.inf.integracao.handler.SIADUnregisterUserHandler;
+import br.ufg.inf.integracao.service.JSONFileService;
 import br.ufg.inf.integracao.service.SIADSenderService;
 import org.apache.http.ExceptionLogger;
 import org.apache.http.impl.nio.bootstrap.ServerBootstrap;
@@ -41,6 +42,7 @@ public class SIADServer extends Thread {
 		logger.info("Endpoint for new messages: " + NEW_MESSAGE_ENDPOINT);
 		logger.info("Endpoint for new users: " + NEW_USER_ENDPOINT);
 		logger.info("Endpoint for deleting users: " + DELETE_USER_ENDPOINT);
+		logger.info("SIAD Home is " + JSONFileService.getInstance().getFolderPathForData());
 
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
