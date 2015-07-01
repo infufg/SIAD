@@ -5,7 +5,6 @@ import br.ufg.inf.integracao.exception.InvalidPayloadException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.*;
@@ -40,7 +39,7 @@ public class SIADMessageUtilsTest {
                 "  }\n" +
                 "}";
 
-        SIADMessage message = SIADMessageUtils.convertJSONToSIADMessage(jSonTeste);
+        SIADMessageUtils.convertJSONToSIADMessage(jSonTeste);
     }
 
     @Test

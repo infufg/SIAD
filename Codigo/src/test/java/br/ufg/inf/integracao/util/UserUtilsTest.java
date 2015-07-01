@@ -18,7 +18,7 @@ public class UserUtilsTest {
     public void testRegisterUserFromJSON() throws Exception {
 
         String aliasData = "Alias" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
-        String enderecoData = "Endereço" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
+        String enderecoData = "EndereÃ§o" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
         String jSonTeste = "{\n" +
                 "            \"alias\": \"" + aliasData + "\",\n" +
                 "                \"address\": \"" + enderecoData + "\"\n" +
@@ -34,7 +34,7 @@ public class UserUtilsTest {
     public void testRegisterUserFromJSON_DuplicateUserExcep() throws Exception {
 
         String aliasData = "Alias" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
-        String enderecoData = "Endereço" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
+        String enderecoData = "EndereÃ§o" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
         String jSonTeste = "{\n" +
                 "            \"alias\": \"" + aliasData + "\",\n" +
                 "                \"address\": \"" + enderecoData + "\"\n" +
@@ -48,7 +48,7 @@ public class UserUtilsTest {
     public void testRegisterUserFromJSON_InvalidParameterExcep() throws Exception {
 
         String aliasData = "Alias" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
-        String enderecoData = "Endereço" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
+        String enderecoData = "EndereÃ§o" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
         String jSonTeste = "{\n" +
                 "            \"aliaz\": \"" + aliasData + "\",\n" +
                 "                \"addresz\": \"" + enderecoData + "\"\n" +
@@ -61,7 +61,7 @@ public class UserUtilsTest {
     public void testUnregisterUserFromJSON() throws Exception {
 
         String aliasData = "Alias" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
-        String enderecoData = "Endereço" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
+        String enderecoData = "EndereÃ§o" + new SimpleDateFormat(SIAD_TIMESTAMP_FORMAT).format(new Date());
         String jSonTeste = "{\n" +
                 "            \"alias\": \"" + aliasData + "\",\n" +
                 "                \"address\": \"" + enderecoData + "\"\n" +
