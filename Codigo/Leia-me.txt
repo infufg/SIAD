@@ -1,0 +1,59 @@
+CONSTRUÇÃO
+Este software depende do Java 7. O Java 7 pode ser obtido em https://www.java.com/pt_BR/download/manual_java7.jsp.
+Este software depende do Gradle para ser construído. O Gradle pode ser obtido em https://gradle.org/.
+A construção foi verificada usando a versão 2.4 do Gradle.
+
+Caso deseje construir o software sem que se inclua todas as dependências no JAR, construa o software com "gradle jar".
+O JAR construído estará em <caminho deste arquivo>/build/libs/SIAD-1.0.jar
+
+Caso deseje construir o software incluindo-se todas as dependências no JAR, construa o software com "gradle fatJar".
+O JAR construído estará em <caminho deste arquivo>/build/libs/SIAD-all-1.0.jar.
+
+Para que o software possa ser executado corretamente sem que precise alterar o CLASSPATH, construa o software incluindo todas as dependências no JAR.
+
+EXECUÇÃO
+Este software depende do Java 7. O Java 7 pode ser obtido em https://www.java.com/pt_BR/download/manual_java7.jsp.
+Este software deve ser executado por um usuário que tenha permissão de escrita em SIAD_HOME. SIAD_HOME é impresso durante a inicialização do software.
+
+Este software pode ser executado como um JAR comum.
+Em ambientes com CLI, basta executar "java -jar /caminho/do/jar.jar".
+
+Caso o JAR tenha sido construído sem dependências, as seguintes bibliotecas deverão ser fornecidas pelo CLASSPATH:
+- commons-codec:commons-codec:1.9
+- commons-logging:commons-logging:1.2
+- org.apache.commons:commons-lang3:3.4
+- org.apache.httpcomponents:httpclient:4.4.1
+- org.apache.httpcomponents:httpcore-nio:4.4.1
+- org.apache.httpcomponents:httpcore:4.4.1
+- org.json:json:20140107
+
+O software começará a imprimir informações no console. 
+Em uma execução bem sucedida, e sem usuários registrados, a saída deverá ser similar à fornecida abaixo:
+
+"""
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.main.SIADServer main
+INFORMAÇÕES: Preparing SIADServer...
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.service.SIADSenderService <init>
+INFORMAÇÕES: SIADSenderService is up and running!
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.service.SIADSenderService refreshWorkers
+INFORMAÇÕES: Refreshing workers...
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.service.SIADSenderService run
+INFORMAÇÕES: Workers are up and running. Sleeping...
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.main.SIADServer main
+INFORMAÇÕES: Endpoint for new messages: /sendMessage
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.main.SIADServer main
+INFORMAÇÕES: Endpoint for new users: /registerUser
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.main.SIADServer main
+INFORMAÇÕES: Endpoint for deleting users: /unregisterUser
+Jul 01, 2015 2:18:18 PM br.ufg.inf.integracao.main.SIADServer main
+INFORMAÇÕES: SIAD Home is /home/siad
+"""
+
+Ao se encerrar o software, espera-se uma saída similar à fornecida abaixo:
+
+"""
+Jul 01, 2015 2:19:01 PM br.ufg.inf.integracao.main.SIADServer$1 run
+INFORMAÇÕES: Stopping SIADServer...
+Jul 01, 2015 2:19:01 PM br.ufg.inf.integracao.service.SIADSenderService requestStop
+INFORMAÇÕES: Stop requested.
+"""
