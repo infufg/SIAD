@@ -3,6 +3,7 @@ package br.ufg.inf.integracao.handler;
 import br.ufg.inf.integracao.domain.SIADMessage;
 import br.ufg.inf.integracao.exception.InvalidPayloadException;
 import br.ufg.inf.integracao.service.JSONFileService;
+import br.ufg.inf.integracao.service.SIADRegistrarService;
 import br.ufg.inf.integracao.util.SIADMessageUtils;
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
@@ -46,8 +47,15 @@ public class SIADMessageReceiverHandler implements HttpAsyncRequestHandler<HttpR
 		try {
 			SIADMessage message = SIADMessageUtils.convertJSONToSIADMessage(jsonString);
 			Map<String, JSONObject> jsonPerRecipient = SIADMessageUtils.convertSIADMessageToSingleRecipientJSON(message);
-			for (Map.Entry<String, JSONObject> entry : jsonPerRecipient.entrySet()) {
-				JSONFileService.getInstance().saveSingleMessageJSONObjectToFile(entry.getKey(), entry.getValue());
+			if(jsonPerRecipient.containsKey("*")) {
+				JSONObject broadcast = jsonPerRecipient.get("*");
+				for(String user : SIADRegistrarService.getInstance().getUsers()) {
+					JSONFileService.getInstance().saveSingleMessageJSONObjectToFile(user, broadcast);
+				}
+			} else {
+				for (Map.Entry<String, JSONObject> entry : jsonPerRecipient.entrySet()) {
+					JSONFileService.getInstance().saveSingleMessageJSONObjectToFile(entry.getKey(), entry.getValue());
+				}
 			}
 
 			response.setStatusCode(HttpStatus.SC_OK);
