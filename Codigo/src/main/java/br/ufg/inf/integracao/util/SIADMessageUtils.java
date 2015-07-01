@@ -19,7 +19,7 @@ public class SIADMessageUtils {
 	public static SIADMessage convertJSONToSIADMessage(String jsonString) throws InvalidPayloadException, JSONException {
 		JSONObject jsonObject = new JSONObject(jsonString);
 
-		boolean jsonHasAllRequiredFields = jsonObject.has(JSON_KEY_SENDER) && jsonObject.has("receivers") && jsonObject.has("content");
+		boolean jsonHasAllRequiredFields = jsonObject.has(JSON_KEY_SENDER) && jsonObject.has(JSON_KEY_RECEIVERS) && jsonObject.has(JSON_KEY_CONTENT);
 		if (!jsonHasAllRequiredFields) {
 			throw new InvalidPayloadException(JSON_KEY_SENDER + ", " + JSON_KEY_RECEIVERS + " and " + JSON_KEY_CONTENT +
 					" are required fields. Received \"" + jsonString + "\"");
